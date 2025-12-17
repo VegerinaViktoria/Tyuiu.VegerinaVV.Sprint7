@@ -117,4 +117,49 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="buttonRemove_VVV.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKMSURBVFhHrVbLS1RRHD6roojATW1KSCFIpAdIFlFI
+        ZI9BJM1kKEvRGMIYTMTAhSAUJISCCxcGRRBBLVzUoiCINv4XLe1xZ8xH9qCX/OL7zZzpnOuZex7jBx/c
+        Oef3PUaOd44QZmyaazpIIJ7jmx4I8mHR6twbpq9YQZBPQfT2Fc0372Pi2VWswN9ncn/tDgysvH5eEkli
+        LVGsg8O9fMbr9+xk0ctZen+6zkjsGcU6CuGePixafvGUPpytTyRm4mIFwT5V+LA0+5g+pg5YiTlDCQ4P
+        8KjiAkKIRjZ49pA+tRyyEnNKiUK4v7ZRFoDJLiHEcWwsPrlPUWuDlZjDfIgGWcXM/+dALfH50TTlzh+2
+        8l2qgRlfNxGe5cLNJR5MUb796IYQXrZwCa3EwswELXQcq4wzE87hEnqJ6XFa7DwRRGh9wyW0EvmpO7SU
+        bvIiNKHhEnqJyTFavnTSiZitNFwCwhoucG+UVrqanYjZYoGaSsIBfsnk7o7Ql6tnvAhNsURwAQ7P3x6m
+        1Z5UEKENLVH45mOD9LW3pSLCw6uEvBfkRrP07VrrhhBeTiXkvSAa6afvmTYr59OnmPF1E+GZWKIUfitD
+        P65fsBJzmA/RrCtRCh/qo583Oq3EHOb3btvSIYQ4F6JVS/CBi2720K9s2spooJsN6rZvTQkhaov/6/yy
+        wl583kRkqSX4RhRlu+j3wOVEYkYJrxZCbI6/MX181t2Iov40/Rm8YiT2DOGlv6JWwsGn7I0oylykv0Pd
+        GrGWEC7h7GP6jdDFfe20NtzLxLNDuITVxxReRtzG9AiXYB9o4j5J4RJaiYBwCfhUyxKKT2K4hCyBQ3Ik
+        IFwCGmjhAe52CZfAIE4o6CwywOrzD08nn19kXpRZAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="Firms.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Type.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Frequency.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Ram.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Disk.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Cost.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="saveFileDialog_VVV.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="openFileDialog_VVV.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>182, 17</value>
+  </metadata>
 </root>
