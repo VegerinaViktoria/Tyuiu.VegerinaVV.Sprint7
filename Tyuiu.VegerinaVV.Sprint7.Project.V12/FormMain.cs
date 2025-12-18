@@ -79,5 +79,62 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
                 str = "";
             }
         }
+
+        private void buttonAdd_VVV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int rowIndex = dataGridViewData_VVV.Rows.Add();
+                dataGridViewData_VVV.ClearSelection();
+                dataGridViewData_VVV.Rows[rowIndex].Selected = true;
+                dataGridViewData_VVV.FirstDisplayedScrollingRowIndex = rowIndex;
+                dataGridViewData_VVV.CurrentCell = dataGridViewData_VVV.Rows[rowIndex].Cells[0];
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonRemove_VVV_Click(object sender, EventArgs e)
+        {
+            dataGridViewData_VVV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            if (dataGridViewData_VVV.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите строку для удаления.", "Строка не выбрана", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (MessageBox.Show("Вы уверены, что хотите удалить выбранные строки?", "Подтвердить удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+
+                List<int> rowsToDelete = new List<int>();
+                foreach (DataGridViewRow selectedRow in dataGridViewData_VVV.SelectedRows)
+                    rowsToDelete.Add(selectedRow.Index);
+
+                for (int i = rowsToDelete.Count - 1; i >= 0; i--)
+                {
+                    dataGridViewData_VVV.Rows.RemoveAt(rowsToDelete[i]);
+                }
+
+                dataGridViewData_VVV.ClearSelection();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка удаления строки: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (dataGridViewData_VVV.Rows.Count == 0)
+            {
+                buttonRemove_VVV.Enabled = false;
+            }
+        }
     }
 }

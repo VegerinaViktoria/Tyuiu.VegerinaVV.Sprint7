@@ -275,6 +275,7 @@
             buttonRemove_VVV.Size = new Size(63, 60);
             buttonRemove_VVV.TabIndex = 3;
             buttonRemove_VVV.UseVisualStyleBackColor = false;
+            buttonRemove_VVV.Click += buttonRemove_VVV_Click;
             // 
             // buttonAdd_VVV
             // 
@@ -285,6 +286,7 @@
             buttonAdd_VVV.Size = new Size(63, 60);
             buttonAdd_VVV.TabIndex = 2;
             buttonAdd_VVV.UseVisualStyleBackColor = false;
+            buttonAdd_VVV.Click += buttonAdd_VVV_Click;
             // 
             // buttonSave_VVV
             // 
@@ -318,6 +320,7 @@
             // 
             // dataGridViewData_VVV
             // 
+            dataGridViewData_VVV.AllowUserToAddRows = false;
             dataGridViewData_VVV.BackgroundColor = Color.Lavender;
             dataGridViewData_VVV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewData_VVV.Columns.AddRange(new DataGridViewColumn[] { Firms, Type, Frequency, Ram, Disk, Date, Cost });
@@ -581,6 +584,9 @@
         private Label labelMin_VVV;
         private Label labelMax_VVV;
         private Button buttonAbout_VVV;
+        private Button button2;
+        private SaveFileDialog saveFileDialog_VVV;
+        private OpenFileDialog openFileDialog_VVV;
         private DataGridViewTextBoxColumn Firms;
         private DataGridViewTextBoxColumn Type;
         private DataGridViewTextBoxColumn Frequency;
@@ -588,8 +594,5 @@
         private DataGridViewTextBoxColumn Disk;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Cost;
-        private Button button2;
-        private SaveFileDialog saveFileDialog_VVV;
-        private OpenFileDialog openFileDialog_VVV;
     }
 }
