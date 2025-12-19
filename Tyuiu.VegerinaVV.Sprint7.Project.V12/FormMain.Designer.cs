@@ -38,7 +38,7 @@
             tabControlData_VVV = new TabControl();
             tabPageBase_VVV = new TabPage();
             groupBoxWork_VVV = new GroupBox();
-            button2 = new Button();
+            buttonFilter_VVV = new Button();
             labelFilter_VVV = new Label();
             labelName_VVV = new Label();
             labelSearch_VVV = new Label();
@@ -72,7 +72,7 @@
             buttonDownload_VVV = new Button();
             labelDownload_VVV = new Label();
             splitterFirm_VVV = new Splitter();
-            dataGridView1 = new DataGridView();
+            dataGridViewFirms_VVV = new DataGridView();
             groupBoxData_VVV = new GroupBox();
             saveFileDialog_VVV = new SaveFileDialog();
             openFileDialog_VVV = new OpenFileDialog();
@@ -83,7 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridViewData_VVV).BeginInit();
             tabPageFirms_VVV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartMoney_VVV).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFirms_VVV).BeginInit();
             groupBoxData_VVV.SuspendLayout();
             SuspendLayout();
             // 
@@ -149,7 +149,7 @@
             // groupBoxWork_VVV
             // 
             groupBoxWork_VVV.BackColor = Color.White;
-            groupBoxWork_VVV.Controls.Add(button2);
+            groupBoxWork_VVV.Controls.Add(buttonFilter_VVV);
             groupBoxWork_VVV.Controls.Add(labelFilter_VVV);
             groupBoxWork_VVV.Controls.Add(labelName_VVV);
             groupBoxWork_VVV.Controls.Add(labelSearch_VVV);
@@ -170,17 +170,18 @@
             groupBoxWork_VVV.TabIndex = 2;
             groupBoxWork_VVV.TabStop = false;
             // 
-            // button2
+            // buttonFilter_VVV
             // 
-            button2.BackColor = Color.FromArgb(192, 192, 255);
-            button2.Font = new Font("Microsoft YaHei", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button2.ForeColor = Color.Indigo;
-            button2.Location = new Point(74, 505);
-            button2.Name = "button2";
-            button2.Size = new Size(169, 54);
-            button2.TabIndex = 3;
-            button2.Text = "Отфильтровать";
-            button2.UseVisualStyleBackColor = false;
+            buttonFilter_VVV.BackColor = Color.FromArgb(192, 192, 255);
+            buttonFilter_VVV.Font = new Font("Microsoft YaHei", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            buttonFilter_VVV.ForeColor = Color.Indigo;
+            buttonFilter_VVV.Location = new Point(74, 505);
+            buttonFilter_VVV.Name = "buttonFilter_VVV";
+            buttonFilter_VVV.Size = new Size(169, 54);
+            buttonFilter_VVV.TabIndex = 3;
+            buttonFilter_VVV.Text = "Отфильтровать";
+            buttonFilter_VVV.UseVisualStyleBackColor = false;
+            buttonFilter_VVV.Click += buttonFilter_VVV_Click;
             // 
             // labelFilter_VVV
             // 
@@ -224,6 +225,7 @@
             comboBoxName_VVV.Name = "comboBoxName_VVV";
             comboBoxName_VVV.Size = new Size(182, 28);
             comboBoxName_VVV.TabIndex = 8;
+            comboBoxName_VVV.SelectedIndexChanged += comboBoxName_VVV_SelectedIndexChanged;
             // 
             // textBoxSearch_VVV
             // 
@@ -394,7 +396,7 @@
             tabPageFirms_VVV.Controls.Add(buttonDownload_VVV);
             tabPageFirms_VVV.Controls.Add(labelDownload_VVV);
             tabPageFirms_VVV.Controls.Add(splitterFirm_VVV);
-            tabPageFirms_VVV.Controls.Add(dataGridView1);
+            tabPageFirms_VVV.Controls.Add(dataGridViewFirms_VVV);
             tabPageFirms_VVV.Location = new Point(4, 29);
             tabPageFirms_VVV.Name = "tabPageFirms_VVV";
             tabPageFirms_VVV.Padding = new Padding(3);
@@ -496,17 +498,17 @@
             splitterFirm_VVV.TabIndex = 1;
             splitterFirm_VVV.TabStop = false;
             // 
-            // dataGridView1
+            // dataGridViewFirms_VVV
             // 
-            dataGridView1.BackgroundColor = Color.Lavender;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Left;
-            dataGridView1.Location = new Point(3, 3);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(538, 565);
-            dataGridView1.TabIndex = 0;
+            dataGridViewFirms_VVV.BackgroundColor = Color.Lavender;
+            dataGridViewFirms_VVV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewFirms_VVV.Dock = DockStyle.Left;
+            dataGridViewFirms_VVV.Location = new Point(3, 3);
+            dataGridViewFirms_VVV.Name = "dataGridViewFirms_VVV";
+            dataGridViewFirms_VVV.RowHeadersVisible = false;
+            dataGridViewFirms_VVV.RowHeadersWidth = 51;
+            dataGridViewFirms_VVV.Size = new Size(538, 565);
+            dataGridViewFirms_VVV.TabIndex = 0;
             // 
             // groupBoxData_VVV
             // 
@@ -531,6 +533,7 @@
             ClientSize = new Size(1277, 715);
             Controls.Add(groupBoxData_VVV);
             Controls.Add(panelLabel_VVV);
+            MinimumSize = new Size(1295, 762);
             Name = "FormMain";
             Text = "Персональные ЭВМ | Выполнила: Вегерина В. В.";
             panelLabel_VVV.ResumeLayout(false);
@@ -543,7 +546,7 @@
             tabPageFirms_VVV.ResumeLayout(false);
             tabPageFirms_VVV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chartMoney_VVV).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewFirms_VVV).EndInit();
             groupBoxData_VVV.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -572,7 +575,7 @@
         private Label labelSearch_VVV;
         private TextBox textBoxFilter_VVV;
         private ComboBox comboBoxName_VVV;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewFirms_VVV;
         private Splitter splitterFirm_VVV;
         private Button buttonDownload_VVV;
         private Label labelDownload_VVV;
@@ -584,7 +587,7 @@
         private Label labelMin_VVV;
         private Label labelMax_VVV;
         private Button buttonAbout_VVV;
-        private Button button2;
+        private Button buttonFilter_VVV;
         private SaveFileDialog saveFileDialog_VVV;
         private OpenFileDialog openFileDialog_VVV;
         private DataGridViewTextBoxColumn Firms;

@@ -136,5 +136,34 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
                 buttonRemove_VVV.Enabled = false;
             }
         }
+
+        private void buttonFilter_VVV_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow r in dataGridViewData_VVV.Rows)
+            {
+                if ((r.Cells[comboBoxName_VVV.SelectedIndex].Value?.ToString() ?? "").ToUpper().Contains(textBoxFilter_VVV.Text.ToUpper()))
+                {
+                    dataGridViewData_VVV.Rows[r.Index].Visible = true;
+                    dataGridViewData_VVV.Rows[r.Index].Selected = true;
+                }
+                else
+                {
+                    dataGridViewData_VVV.CurrentCell = null;
+                    dataGridViewData_VVV.Rows[r.Index].Visible = false;
+                }
+            }
+        }
+
+        private void comboBoxName_VVV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxName_VVV.SelectedIndex >= 0)
+            {
+                textBoxFilter_VVV.Enabled = true;
+            }
+            else
+            {
+                textBoxFilter_VVV.Enabled = false;
+            }
+        }
     }
 }
