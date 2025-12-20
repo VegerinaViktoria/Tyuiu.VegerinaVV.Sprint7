@@ -1,4 +1,5 @@
 using System.IO;
+using System.Xml;
 using Tyuiu.VegerinaVV.Sprint7.Project.V12.Lib;
 namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 {
@@ -8,6 +9,8 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
         {
             InitializeComponent();
             openFileDialog_VVV.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
+            openFileDialogFirms_VVV.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
+
         }
         DataService ds = new DataService();
         string openFilePath;
@@ -164,6 +167,98 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
             {
                 textBoxFilter_VVV.Enabled = false;
             }
+        }
+
+        private void textBoxSearch_VVV_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = textBoxSearch_VVV.Text.ToUpper();
+            dataGridViewData_VVV.CurrentCell = null;
+            foreach (DataGridViewRow r in dataGridViewData_VVV.Rows)
+            {
+                bool foundRow = false;
+
+                for (int i = 0; i < r.Cells.Count; i++)
+                {
+                    DataGridViewCell cell = r.Cells[i];
+                    string cellValue = (cell.Value?.ToString() ?? "").ToUpper();
+
+                    if (!string.IsNullOrEmpty(searchText) && cellValue.Contains(searchText))
+                    {
+                        cell.Style.BackColor = Color.BlueViolet;
+                        foundRow = true;
+                    }
+                    else
+                    {
+                        cell.Style.BackColor = Color.Empty;
+                    }
+                }
+
+                if (string.IsNullOrEmpty(searchText))
+                {
+                    r.Visible = true;
+                }
+                else
+                {
+                    r.Visible = foundRow;
+                }
+            }
+        }
+
+        private void buttonDownload_VVV_Click(object sender, EventArgs e)
+        {
+            openFileDialogFirms_VVV.ShowDialog();
+            openFilePath = openFileDialogFirms_VVV.FileName;
+
+            string[,] arrayValues = ds.LoadFromFileData(openFilePath);
+            dataGridViewFirms_VVV.ColumnCount = columns = arrayValues.GetLength(1);
+            dataGridViewFirms_VVV.RowCount = rows = arrayValues.GetLength(0);
+
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    dataGridViewFirms_VVV.Rows[i].Cells[j].Value = arrayValues[i, j];
+                }
+            }
+        }
+
+        private void buttonChartMoney_VVV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                chartMoney_VVV.Series[0].Points.Clear();
+                chartMoney_VVV.Series[0].IsValueShownAsLabel = true;
+
+                int money = dataGridViewFirms_VVV.ColumnCount - 1;
+
+                int label = 1;
+
+                if (money < 1)
+                {
+                    return;
+                }
+
+                foreach (DataGridViewRow r in dataGridViewFirms_VVV.Rows)
+                {
+                    string name = r.Cells[label].Value?.ToString() ?? "";
+
+                    object value = r.Cells[money].Value;
+
+                    double val = Convert.ToDouble(value);
+
+                    chartMoney_VVV.Series[0].Points.AddXY(name,val);
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно построить диаграмму", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void chartMoney_VVV_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
