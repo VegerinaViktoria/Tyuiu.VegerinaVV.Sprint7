@@ -44,6 +44,7 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
             {
                 buttonRemove_VVV.Enabled = true;
             }
+            buttonSave_VVV.Enabled = true;
         }
 
         private void buttonSave_VVV_Click(object sender, EventArgs e)
@@ -221,6 +222,11 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
                     dataGridViewFirms_VVV.Rows[i].Cells[j].Value = arrayValues[i, j];
                 }
             }
+            if (dataGridViewFirms_VVV.Rows.Count != 0)
+            {
+                buttonRemoveFirms_VVV.Enabled = true;
+            }
+            buttonSaveFirms_VVV.Enabled = true;
         }
 
         private void buttonChartMoney_VVV_Click(object sender, EventArgs e)
@@ -247,7 +253,7 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
                     double val = Convert.ToDouble(value);
 
-                    chartMoney_VVV.Series[0].Points.AddXY(name,val);
+                    chartMoney_VVV.Series[0].Points.AddXY(name, val);
                 }
             }
             catch
@@ -258,7 +264,141 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
         private void chartMoney_VVV_Click(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void buttonDoneStatistic_VVV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int count = 0;
+                for (int i = 0; i < dataGridViewFirms_VVV.Rows.Count; i++)
+                {
+                    if (dataGridViewFirms_VVV.Rows[i].Visible)
+                    {
+                        count++;
+                    }
+                }
+
+                if (count > 0)
+                {
+                    int[] values = new int[count];
+                    int index = 0;
+
+                    for (int i = 0; i < dataGridViewFirms_VVV.Rows.Count; i++)
+                    {
+                        if (dataGridViewFirms_VVV.Rows[i].Visible)
+                        {
+                            string val = dataGridViewFirms_VVV.Rows[i].Cells[4].Value?.ToString() ?? "0";
+                            values[index] = int.Parse(val);
+                            index++;
+                        }
+                    }
+                    textBoxMax_VVV.Text = ds.MaxValue(values).ToString();
+                    textBoxMin_VVV.Text = ds.MinValue(values).ToString();
+                    textBoxAverage_VVV.Text = ds.AverageValue(values).ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void buttonSaveFirms_VVV_Click(object sender, EventArgs e)
+        {
+            saveFileDialogFirms_VVV.FileName = "DataBaseFirms.csv";
+            saveFileDialogFirms_VVV.InitialDirectory = Directory.GetCurrentDirectory();
+            saveFileDialogFirms_VVV.ShowDialog();
+
+
+            string path = saveFileDialogFirms_VVV.FileName;
+
+            FileInfo fileInfo = new FileInfo(path);
+            bool fileExists = fileInfo.Exists;
+            if (fileExists)
+            {
+                File.Delete(path);
+            }
+            int rows = dataGridViewFirms_VVV.RowCount;
+            int columns = dataGridViewFirms_VVV.ColumnCount;
+            string str = "";
+
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    if (j != columns - 1)
+                    {
+                        str = str + dataGridViewFirms_VVV.Rows[i].Cells[j].Value + ";";
+                    }
+                    else
+                    {
+                        str = str + dataGridViewFirms_VVV.Rows[i].Cells[j].Value;
+                    }
+                }
+                File.AppendAllText(path, str + Environment.NewLine);
+                str = "";
+            }
+        }
+
+        private void buttonAddFirms_VVV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int rowIndex = dataGridViewFirms_VVV.Rows.Add();
+                dataGridViewFirms_VVV.Rows[rowIndex].Cells[0].Value = rowIndex + 1;
+                dataGridViewFirms_VVV.ClearSelection();
+                dataGridViewFirms_VVV.Rows[rowIndex].Selected = true;
+                dataGridViewFirms_VVV.FirstDisplayedScrollingRowIndex = rowIndex;
+                dataGridViewFirms_VVV.CurrentCell = dataGridViewFirms_VVV.Rows[rowIndex].Cells[1];
+            }
+            catch
+            {
+                MessageBox.Show("Невозможно добавить данные", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonRemoveFirms_VVV_Click(object sender, EventArgs e)
+        {
+            dataGridViewFirms_VVV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            if (dataGridViewFirms_VVV.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Пожалуйста, выберите строку для удаления.", "Строка не выбрана", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            if (MessageBox.Show("Вы уверены, что хотите удалить выбранные строки?", "Подтвердить удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+
+                List<int> rowsToDelete = new List<int>();
+                foreach (DataGridViewRow selectedRow in dataGridViewFirms_VVV.SelectedRows)
+                    rowsToDelete.Add(selectedRow.Index);
+
+                for (int i = rowsToDelete.Count - 1; i >= 0; i--)
+                {
+                    dataGridViewFirms_VVV.Rows.RemoveAt(rowsToDelete[i]);
+                }
+
+                dataGridViewFirms_VVV.ClearSelection();
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка удаления строки: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (dataGridViewFirms_VVV.Rows.Count == 0)
+            {
+                buttonRemoveFirms_VVV.Enabled = false;
+            }
         }
     }
 }
