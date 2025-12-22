@@ -93,6 +93,16 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap computer {
+            get {
+                object obj = ResourceManager.GetObject("computer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cross {
             get {
                 object obj = ResourceManager.GetObject("cross", resourceCulture);
@@ -136,6 +146,16 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12.Properties {
         internal static System.Drawing.Bitmap photo {
             get {
                 object obj = ResourceManager.GetObject("photo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Plufow_Le_Studio___plufow____Unsplash_Photo_Community {
+            get {
+                object obj = ResourceManager.GetObject("Plufow Le Studio (@plufow) _ Unsplash Photo Community", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

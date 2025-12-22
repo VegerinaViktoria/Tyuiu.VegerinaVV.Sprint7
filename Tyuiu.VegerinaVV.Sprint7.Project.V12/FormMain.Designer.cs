@@ -37,10 +37,13 @@
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             panelLabel_VVV = new Panel();
             buttonAbout_VVV = new Button();
             labelData_VVV = new Label();
+            menuStripProject_VVV = new MenuStrip();
+            справкаToolStripMenuItem = new ToolStripMenuItem();
+            поддержкаToolStripMenuItem = new ToolStripMenuItem();
+            руководствоПользователяToolStripMenuItem = new ToolStripMenuItem();
             tabControlData_VVV = new TabControl();
             tabPageBase_VVV = new TabPage();
             groupBoxWork_VVV = new GroupBox();
@@ -95,6 +98,7 @@
             openFileDialogFirms_VVV = new OpenFileDialog();
             saveFileDialogFirms_VVV = new SaveFileDialog();
             panelLabel_VVV.SuspendLayout();
+            menuStripProject_VVV.SuspendLayout();
             tabControlData_VVV.SuspendLayout();
             tabPageBase_VVV.SuspendLayout();
             groupBoxWork_VVV.SuspendLayout();
@@ -110,6 +114,7 @@
             panelLabel_VVV.BackColor = Color.Lavender;
             panelLabel_VVV.Controls.Add(buttonAbout_VVV);
             panelLabel_VVV.Controls.Add(labelData_VVV);
+            panelLabel_VVV.Controls.Add(menuStripProject_VVV);
             panelLabel_VVV.Dock = DockStyle.Top;
             panelLabel_VVV.Location = new Point(0, 0);
             panelLabel_VVV.Name = "panelLabel_VVV";
@@ -120,7 +125,7 @@
             // 
             buttonAbout_VVV.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             buttonAbout_VVV.Image = Properties.Resources.information;
-            buttonAbout_VVV.Location = new Point(1194, 12);
+            buttonAbout_VVV.Location = new Point(1187, 14);
             buttonAbout_VVV.Name = "buttonAbout_VVV";
             buttonAbout_VVV.Size = new Size(60, 54);
             buttonAbout_VVV.TabIndex = 2;
@@ -130,15 +135,54 @@
             // labelData_VVV
             // 
             labelData_VVV.AutoSize = true;
-            labelData_VVV.BackColor = Color.FromArgb(192, 192, 255);
-            labelData_VVV.BorderStyle = BorderStyle.Fixed3D;
+            labelData_VVV.BackColor = Color.Transparent;
             labelData_VVV.Font = new Font("Microsoft YaHei", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             labelData_VVV.ForeColor = Color.Indigo;
-            labelData_VVV.Location = new Point(346, 25);
+            labelData_VVV.Location = new Point(437, 31);
             labelData_VVV.Name = "labelData_VVV";
-            labelData_VVV.Size = new Size(344, 39);
+            labelData_VVV.Size = new Size(342, 37);
             labelData_VVV.TabIndex = 1;
             labelData_VVV.Text = "ПЕРСОНАЛЬНЫЕ ЭВМ";
+            // 
+            // menuStripProject_VVV
+            // 
+            menuStripProject_VVV.BackColor = Color.Lavender;
+            menuStripProject_VVV.BackgroundImageLayout = ImageLayout.Stretch;
+            menuStripProject_VVV.ImageScalingSize = new Size(20, 20);
+            menuStripProject_VVV.Items.AddRange(new ToolStripItem[] { справкаToolStripMenuItem });
+            menuStripProject_VVV.Location = new Point(0, 0);
+            menuStripProject_VVV.Name = "menuStripProject_VVV";
+            menuStripProject_VVV.Size = new Size(1277, 32);
+            menuStripProject_VVV.TabIndex = 3;
+            menuStripProject_VVV.Text = "menuStrip1";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            справкаToolStripMenuItem.BackColor = Color.White;
+            справкаToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { поддержкаToolStripMenuItem, руководствоПользователяToolStripMenuItem });
+            справкаToolStripMenuItem.Font = new Font("Microsoft YaHei", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            справкаToolStripMenuItem.ForeColor = Color.Indigo;
+            справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            справкаToolStripMenuItem.Size = new Size(98, 28);
+            справкаToolStripMenuItem.Text = "Справка";
+            // 
+            // поддержкаToolStripMenuItem
+            // 
+            поддержкаToolStripMenuItem.Font = new Font("Microsoft YaHei", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            поддержкаToolStripMenuItem.ForeColor = Color.Indigo;
+            поддержкаToolStripMenuItem.Name = "поддержкаToolStripMenuItem";
+            поддержкаToolStripMenuItem.Size = new Size(336, 28);
+            поддержкаToolStripMenuItem.Text = "Поддержка";
+            поддержкаToolStripMenuItem.Click += поддержкаToolStripMenuItem_Click;
+            // 
+            // руководствоПользователяToolStripMenuItem
+            // 
+            руководствоПользователяToolStripMenuItem.Font = new Font("Microsoft YaHei", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            руководствоПользователяToolStripMenuItem.ForeColor = Color.Indigo;
+            руководствоПользователяToolStripMenuItem.Name = "руководствоПользователяToolStripMenuItem";
+            руководствоПользователяToolStripMenuItem.Size = new Size(336, 28);
+            руководствоПользователяToolStripMenuItem.Text = "Руководство пользователя";
+            руководствоПользователяToolStripMenuItem.Click += руководствоПользователяToolStripMenuItem_Click;
             // 
             // tabControlData_VVV
             // 
@@ -183,9 +227,9 @@
             groupBoxWork_VVV.Controls.Add(buttonSave_VVV);
             groupBoxWork_VVV.Controls.Add(buttonOpen_VVV);
             groupBoxWork_VVV.Dock = DockStyle.Fill;
-            groupBoxWork_VVV.Location = new Point(923, 3);
+            groupBoxWork_VVV.Location = new Point(952, 3);
             groupBoxWork_VVV.Name = "groupBoxWork_VVV";
-            groupBoxWork_VVV.Size = new Size(337, 560);
+            groupBoxWork_VVV.Size = new Size(308, 560);
             groupBoxWork_VVV.TabIndex = 2;
             groupBoxWork_VVV.TabStop = false;
             // 
@@ -311,7 +355,7 @@
             // buttonAdd_VVV
             // 
             buttonAdd_VVV.BackColor = Color.FromArgb(192, 192, 255);
-            buttonAdd_VVV.Image = Properties.Resources.add;
+            buttonAdd_VVV.Image = (Image)resources.GetObject("buttonAdd_VVV.Image");
             buttonAdd_VVV.Location = new Point(42, 188);
             buttonAdd_VVV.Name = "buttonAdd_VVV";
             buttonAdd_VVV.Size = new Size(63, 60);
@@ -344,7 +388,7 @@
             // 
             // splitterData_VVV
             // 
-            splitterData_VVV.Location = new Point(913, 3);
+            splitterData_VVV.Location = new Point(942, 3);
             splitterData_VVV.Name = "splitterData_VVV";
             splitterData_VVV.Size = new Size(10, 560);
             splitterData_VVV.TabIndex = 1;
@@ -385,7 +429,7 @@
             dataGridViewData_VVV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewData_VVV.RowHeadersVisible = false;
             dataGridViewData_VVV.RowHeadersWidth = 51;
-            dataGridViewData_VVV.Size = new Size(910, 560);
+            dataGridViewData_VVV.Size = new Size(939, 560);
             dataGridViewData_VVV.TabIndex = 0;
             // 
             // Firms
@@ -407,14 +451,14 @@
             Frequency.HeaderText = "Тактовая частота";
             Frequency.MinimumWidth = 6;
             Frequency.Name = "Frequency";
-            Frequency.Width = 125;
+            Frequency.Width = 110;
             // 
             // Ram
             // 
             Ram.HeaderText = "Объем ОЗУ";
             Ram.MinimumWidth = 6;
             Ram.Name = "Ram";
-            Ram.Width = 125;
+            Ram.Width = 110;
             // 
             // Disk
             // 
@@ -498,7 +542,7 @@
             // buttonDoneStatistic_VVV
             // 
             buttonDoneStatistic_VVV.Image = Properties.Resources.tick;
-            buttonDoneStatistic_VVV.Location = new Point(1058, 492);
+            buttonDoneStatistic_VVV.Location = new Point(1058, 484);
             buttonDoneStatistic_VVV.Name = "buttonDoneStatistic_VVV";
             buttonDoneStatistic_VVV.Size = new Size(145, 48);
             buttonDoneStatistic_VVV.TabIndex = 12;
@@ -616,11 +660,11 @@
             labelDownload_VVV.AutoSize = true;
             labelDownload_VVV.Font = new Font("Microsoft YaHei", 9F, FontStyle.Bold | FontStyle.Italic | FontStyle.Underline, GraphicsUnit.Point, 204);
             labelDownload_VVV.ForeColor = Color.Indigo;
-            labelDownload_VVV.Location = new Point(752, 306);
+            labelDownload_VVV.Location = new Point(737, 313);
             labelDownload_VVV.Name = "labelDownload_VVV";
-            labelDownload_VVV.Size = new Size(192, 19);
+            labelDownload_VVV.Size = new Size(232, 19);
             labelDownload_VVV.TabIndex = 2;
-            labelDownload_VVV.Text = "Загрузить базу данных";
+            labelDownload_VVV.Text = "Редактировать базу данных\r\n";
             // 
             // splitterFirm_VVV
             // 
@@ -636,7 +680,7 @@
             dataGridViewFirms_VVV.BackgroundColor = Color.Lavender;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Microsoft YaHei UI", 10F);
+            dataGridViewCellStyle4.Font = new Font("Microsoft YaHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 204);
             dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = Color.MediumPurple;
             dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
@@ -644,14 +688,6 @@
             dataGridViewFirms_VVV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewFirms_VVV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewFirms_VVV.Columns.AddRange(new DataGridViewColumn[] { Number, Firm, Address, Phone, Money });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridViewFirms_VVV.DefaultCellStyle = dataGridViewCellStyle5;
             dataGridViewFirms_VVV.Dock = DockStyle.Left;
             dataGridViewFirms_VVV.Location = new Point(3, 3);
             dataGridViewFirms_VVV.Name = "dataGridViewFirms_VVV";
@@ -715,11 +751,14 @@
             ClientSize = new Size(1277, 715);
             Controls.Add(groupBoxData_VVV);
             Controls.Add(panelLabel_VVV);
+            MainMenuStrip = menuStripProject_VVV;
             MinimumSize = new Size(1295, 762);
             Name = "FormMain";
             Text = "Персональные ЭВМ | Выполнила: Вегерина В. В.";
             panelLabel_VVV.ResumeLayout(false);
             panelLabel_VVV.PerformLayout();
+            menuStripProject_VVV.ResumeLayout(false);
+            menuStripProject_VVV.PerformLayout();
             tabControlData_VVV.ResumeLayout(false);
             tabPageBase_VVV.ResumeLayout(false);
             groupBoxWork_VVV.ResumeLayout(false);
@@ -780,6 +819,10 @@
         private DataGridViewTextBoxColumn Address;
         private DataGridViewTextBoxColumn Phone;
         private DataGridViewTextBoxColumn Money;
+        private Button buttonSaveFirms_VVV;
+        private SaveFileDialog saveFileDialogFirms_VVV;
+        private Button buttonRemoveFirms_VVV;
+        private Button buttonAddFirms_VVV;
         private DataGridViewTextBoxColumn Firms;
         private DataGridViewTextBoxColumn Type;
         private DataGridViewTextBoxColumn Frequency;
@@ -787,9 +830,9 @@
         private DataGridViewTextBoxColumn Disk;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Cost;
-        private Button buttonSaveFirms_VVV;
-        private SaveFileDialog saveFileDialogFirms_VVV;
-        private Button buttonRemoveFirms_VVV;
-        private Button buttonAddFirms_VVV;
+        private MenuStrip menuStripProject_VVV;
+        private ToolStripMenuItem справкаToolStripMenuItem;
+        private ToolStripMenuItem поддержкаToolStripMenuItem;
+        private ToolStripMenuItem руководствоПользователяToolStripMenuItem;
     }
 }

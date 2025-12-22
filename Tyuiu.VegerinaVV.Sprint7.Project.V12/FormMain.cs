@@ -301,7 +301,7 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка: " + ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Ошибка рассчета данных: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -399,6 +399,18 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
             {
                 buttonRemoveFirms_VVV.Enabled = false;
             }
+        }
+
+        private void поддержкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormSupport formSupport = new FormSupport();
+            formSupport.ShowDialog();
+        }
+
+        private void руководствоПользователяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormInfo formInfo = new FormInfo();
+            formInfo.ShowDialog();
         }
     }
 }
