@@ -58,10 +58,12 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
+
             if (fileExists)
             {
                 File.Delete(path);
             }
+
             int rows = dataGridViewData_VVV.RowCount;
             int columns = dataGridViewData_VVV.ColumnCount;
             string str = "";
@@ -317,10 +319,12 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
+
             if (fileExists)
             {
                 File.Delete(path);
             }
+
             int rows = dataGridViewFirms_VVV.RowCount;
             int columns = dataGridViewFirms_VVV.ColumnCount;
             string str = "";
@@ -411,6 +415,31 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
         {
             FormInfo formInfo = new FormInfo();
             formInfo.ShowDialog();
+        }
+
+        private void buttonSumChart_VVV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                chartSum_VVV.Series[0].Points.Clear();
+                chartSum_VVV.Series[0].IsValueShownAsLabel = true;
+                int sumcolumn = dataGridViewData_VVV.ColumnCount - 1;
+                
+                double sumResult = 0;
+                foreach (DataGridViewRow r in dataGridViewData_VVV.Rows)
+                {
+                    object cellValue = r.Cells[sumcolumn].Value;
+                    if (cellValue != null && double.TryParse(cellValue.ToString(), out double sum))
+                    {
+                        sumResult += sum;
+                    }
+                }
+                chartSum_VVV.Series[0].Points.AddXY("Общая сумма", sumResult);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка построения диаграммы: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSupport));
-            label1 = new Label();
+            labelSupport_VVV = new Label();
             buttonSupportClose_VVV = new Button();
-            label2 = new Label();
+            labelHelp_VVV = new Label();
             SuspendLayout();
             // 
-            // label1
+            // labelSupport_VVV
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label1.Location = new Point(245, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(162, 31);
-            label1.TabIndex = 1;
-            label1.Text = "ПОДДЕРЖКА";
+            labelSupport_VVV.AutoSize = true;
+            labelSupport_VVV.BackColor = Color.Transparent;
+            labelSupport_VVV.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            labelSupport_VVV.Location = new Point(245, 9);
+            labelSupport_VVV.Name = "labelSupport_VVV";
+            labelSupport_VVV.Size = new Size(162, 31);
+            labelSupport_VVV.TabIndex = 1;
+            labelSupport_VVV.Text = "ПОДДЕРЖКА";
             // 
             // buttonSupportClose_VVV
             // 
@@ -57,16 +57,16 @@
             buttonSupportClose_VVV.UseVisualStyleBackColor = true;
             buttonSupportClose_VVV.Click += buttonSupportClose_VVV_Click;
             // 
-            // label2
+            // labelHelp_VVV
             // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label2.Location = new Point(32, 74);
-            label2.Name = "label2";
-            label2.Size = new Size(624, 252);
-            label2.TabIndex = 3;
-            label2.Text = resources.GetString("label2.Text");
+            labelHelp_VVV.AutoSize = true;
+            labelHelp_VVV.BackColor = Color.Transparent;
+            labelHelp_VVV.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            labelHelp_VVV.Location = new Point(32, 74);
+            labelHelp_VVV.Name = "labelHelp_VVV";
+            labelHelp_VVV.Size = new Size(624, 252);
+            labelHelp_VVV.TabIndex = 3;
+            labelHelp_VVV.Text = resources.GetString("labelHelp_VVV.Text");
             // 
             // FormSupport
             // 
@@ -75,9 +75,9 @@
             BackgroundImage = Properties.Resources.Plufow_Le_Studio___plufow____Unsplash_Photo_Community;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(716, 405);
-            Controls.Add(label2);
+            Controls.Add(labelHelp_VVV);
             Controls.Add(buttonSupportClose_VVV);
-            Controls.Add(label1);
+            Controls.Add(labelSupport_VVV);
             Name = "FormSupport";
             Text = "Поддержка";
             ResumeLayout(false);
@@ -85,8 +85,8 @@
         }
 
         #endregion
-        private Label label1;
+        private Label labelSupport_VVV;
         private Button buttonSupportClose_VVV;
-        private Label label2;
+        private Label labelHelp_VVV;
     }
 }

@@ -29,50 +29,50 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormInfo));
-            richTextBox1 = new RichTextBox();
-            groupBox1 = new GroupBox();
-            groupBox1.SuspendLayout();
+            richTextBoxInfo_VVV = new RichTextBox();
+            groupBoxInfo_VVV = new GroupBox();
+            groupBoxInfo_VVV.SuspendLayout();
             SuspendLayout();
             // 
-            // richTextBox1
+            // richTextBoxInfo_VVV
             // 
-            richTextBox1.BackColor = Color.Lavender;
-            richTextBox1.Dock = DockStyle.Fill;
-            richTextBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            richTextBox1.Location = new Point(3, 26);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(877, 576);
-            richTextBox1.TabIndex = 0;
-            richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            richTextBoxInfo_VVV.BackColor = Color.Lavender;
+            richTextBoxInfo_VVV.Dock = DockStyle.Fill;
+            richTextBoxInfo_VVV.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            richTextBoxInfo_VVV.Location = new Point(3, 26);
+            richTextBoxInfo_VVV.Name = "richTextBoxInfo_VVV";
+            richTextBoxInfo_VVV.Size = new Size(763, 585);
+            richTextBoxInfo_VVV.TabIndex = 0;
+            richTextBoxInfo_VVV.Text = resources.GetString("richTextBoxInfo_VVV.Text");
             // 
-            // groupBox1
+            // groupBoxInfo_VVV
             // 
-            groupBox1.BackColor = Color.Lavender;
-            groupBox1.Controls.Add(richTextBox1);
-            groupBox1.Dock = DockStyle.Fill;
-            groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            groupBox1.Location = new Point(0, 0);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(883, 605);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "ПАМЯТКА";
+            groupBoxInfo_VVV.BackColor = Color.Lavender;
+            groupBoxInfo_VVV.Controls.Add(richTextBoxInfo_VVV);
+            groupBoxInfo_VVV.Dock = DockStyle.Fill;
+            groupBoxInfo_VVV.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            groupBoxInfo_VVV.Location = new Point(0, 0);
+            groupBoxInfo_VVV.Name = "groupBoxInfo_VVV";
+            groupBoxInfo_VVV.Size = new Size(769, 614);
+            groupBoxInfo_VVV.TabIndex = 0;
+            groupBoxInfo_VVV.TabStop = false;
+            groupBoxInfo_VVV.Text = "ПАМЯТКА";
             // 
             // FormInfo
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(883, 605);
-            Controls.Add(groupBox1);
+            ClientSize = new Size(769, 614);
+            Controls.Add(groupBoxInfo_VVV);
             Name = "FormInfo";
             Text = "Руководство пользователя";
-            groupBox1.ResumeLayout(false);
+            groupBoxInfo_VVV.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private RichTextBox richTextBox1;
-        private GroupBox groupBox1;
+        private RichTextBox richTextBoxInfo_VVV;
+        private GroupBox groupBoxInfo_VVV;
     }
 }

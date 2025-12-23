@@ -36,6 +36,10 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelLabel_VVV = new Panel();
             buttonAbout_VVV = new Button();
@@ -70,6 +74,10 @@
             Disk = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
             Cost = new DataGridViewTextBoxColumn();
+            tabPageChart_VVV = new TabPage();
+            panelSum_VVV = new Panel();
+            buttonSumChart_VVV = new Button();
+            chartSum_VVV = new System.Windows.Forms.DataVisualization.Charting.Chart();
             tabPageFirms_VVV = new TabPage();
             buttonRemoveFirms_VVV = new Button();
             buttonAddFirms_VVV = new Button();
@@ -103,6 +111,9 @@
             tabPageBase_VVV.SuspendLayout();
             groupBoxWork_VVV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewData_VVV).BeginInit();
+            tabPageChart_VVV.SuspendLayout();
+            panelSum_VVV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartSum_VVV).BeginInit();
             tabPageFirms_VVV.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)chartMoney_VVV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFirms_VVV).BeginInit();
@@ -187,6 +198,7 @@
             // tabControlData_VVV
             // 
             tabControlData_VVV.Controls.Add(tabPageBase_VVV);
+            tabControlData_VVV.Controls.Add(tabPageChart_VVV);
             tabControlData_VVV.Controls.Add(tabPageFirms_VVV);
             tabControlData_VVV.Dock = DockStyle.Fill;
             tabControlData_VVV.Location = new Point(3, 25);
@@ -227,9 +239,9 @@
             groupBoxWork_VVV.Controls.Add(buttonSave_VVV);
             groupBoxWork_VVV.Controls.Add(buttonOpen_VVV);
             groupBoxWork_VVV.Dock = DockStyle.Fill;
-            groupBoxWork_VVV.Location = new Point(952, 3);
+            groupBoxWork_VVV.Location = new Point(962, 3);
             groupBoxWork_VVV.Name = "groupBoxWork_VVV";
-            groupBoxWork_VVV.Size = new Size(308, 560);
+            groupBoxWork_VVV.Size = new Size(298, 560);
             groupBoxWork_VVV.TabIndex = 2;
             groupBoxWork_VVV.TabStop = false;
             // 
@@ -238,7 +250,7 @@
             buttonFilter_VVV.BackColor = Color.FromArgb(192, 192, 255);
             buttonFilter_VVV.Font = new Font("Microsoft YaHei", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             buttonFilter_VVV.ForeColor = Color.Indigo;
-            buttonFilter_VVV.Location = new Point(74, 505);
+            buttonFilter_VVV.Location = new Point(74, 500);
             buttonFilter_VVV.Name = "buttonFilter_VVV";
             buttonFilter_VVV.Size = new Size(169, 54);
             buttonFilter_VVV.TabIndex = 3;
@@ -388,7 +400,7 @@
             // 
             // splitterData_VVV
             // 
-            splitterData_VVV.Location = new Point(942, 3);
+            splitterData_VVV.Location = new Point(952, 3);
             splitterData_VVV.Name = "splitterData_VVV";
             splitterData_VVV.Size = new Size(10, 560);
             splitterData_VVV.TabIndex = 1;
@@ -429,7 +441,7 @@
             dataGridViewData_VVV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewData_VVV.RowHeadersVisible = false;
             dataGridViewData_VVV.RowHeadersWidth = 51;
-            dataGridViewData_VVV.Size = new Size(939, 560);
+            dataGridViewData_VVV.Size = new Size(949, 560);
             dataGridViewData_VVV.TabIndex = 0;
             // 
             // Firms
@@ -480,6 +492,71 @@
             Cost.MinimumWidth = 6;
             Cost.Name = "Cost";
             Cost.Width = 140;
+            // 
+            // tabPageChart_VVV
+            // 
+            tabPageChart_VVV.Controls.Add(panelSum_VVV);
+            tabPageChart_VVV.Location = new Point(4, 32);
+            tabPageChart_VVV.Name = "tabPageChart_VVV";
+            tabPageChart_VVV.Size = new Size(1263, 566);
+            tabPageChart_VVV.TabIndex = 2;
+            tabPageChart_VVV.Text = "Общая стоимость";
+            tabPageChart_VVV.UseVisualStyleBackColor = true;
+            // 
+            // panelSum_VVV
+            // 
+            panelSum_VVV.Controls.Add(buttonSumChart_VVV);
+            panelSum_VVV.Controls.Add(chartSum_VVV);
+            panelSum_VVV.Dock = DockStyle.Fill;
+            panelSum_VVV.Location = new Point(0, 0);
+            panelSum_VVV.Name = "panelSum_VVV";
+            panelSum_VVV.Size = new Size(1263, 566);
+            panelSum_VVV.TabIndex = 1;
+            // 
+            // buttonSumChart_VVV
+            // 
+            buttonSumChart_VVV.BackColor = Color.Transparent;
+            buttonSumChart_VVV.Font = new Font("Microsoft YaHei UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            buttonSumChart_VVV.ForeColor = Color.Indigo;
+            buttonSumChart_VVV.Image = Properties.Resources.chart_bar;
+            buttonSumChart_VVV.ImageAlign = ContentAlignment.MiddleRight;
+            buttonSumChart_VVV.Location = new Point(1052, 483);
+            buttonSumChart_VVV.Name = "buttonSumChart_VVV";
+            buttonSumChart_VVV.Size = new Size(141, 58);
+            buttonSumChart_VVV.TabIndex = 2;
+            buttonSumChart_VVV.Text = "Подсчитать";
+            buttonSumChart_VVV.TextAlign = ContentAlignment.MiddleLeft;
+            buttonSumChart_VVV.UseVisualStyleBackColor = false;
+            buttonSumChart_VVV.Click += buttonSumChart_VVV_Click;
+            // 
+            // chartSum_VVV
+            // 
+            chartSum_VVV.BackColor = Color.Lavender;
+            chartArea1.Name = "ChartArea1";
+            chartSum_VVV.ChartAreas.Add(chartArea1);
+            chartSum_VVV.Dock = DockStyle.Top;
+            legend1.Name = "Общая стоимость всех ЭВМ";
+            chartSum_VVV.Legends.Add(legend1);
+            chartSum_VVV.Location = new Point(0, 0);
+            chartSum_VVV.Name = "chartSum_VVV";
+            chartSum_VVV.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            chartSum_VVV.PaletteCustomColors = new Color[]
+    {
+    Color.FromArgb(128, 128, 255)
+    };
+            series1.BorderColor = SystemColors.ButtonHighlight;
+            series1.ChartArea = "ChartArea1";
+            series1.Font = new Font("Microsoft YaHei", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            series1.Legend = "Общая стоимость всех ЭВМ";
+            series1.Name = "Общая стоимость всех ЭВМ";
+            chartSum_VVV.Series.Add(series1);
+            chartSum_VVV.Size = new Size(1263, 573);
+            chartSum_VVV.TabIndex = 0;
+            title1.BackColor = Color.Transparent;
+            title1.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            title1.ForeColor = Color.Indigo;
+            title1.Name = "Общая стоимость";
+            chartSum_VVV.Titles.Add(title1);
             // 
             // tabPageFirms_VVV
             // 
@@ -620,29 +697,29 @@
             // 
             // chartMoney_VVV
             // 
-            chartArea1.Name = "ChartArea1";
-            chartMoney_VVV.ChartAreas.Add(chartArea1);
+            chartArea2.Name = "ChartArea1";
+            chartMoney_VVV.ChartAreas.Add(chartArea2);
             chartMoney_VVV.Dock = DockStyle.Top;
-            legend1.DockedToChartArea = "ChartArea1";
-            legend1.IsDockedInsideChartArea = false;
-            legend1.Name = "Legend1";
-            chartMoney_VVV.Legends.Add(legend1);
+            legend2.DockedToChartArea = "ChartArea1";
+            legend2.IsDockedInsideChartArea = false;
+            legend2.Name = "Legend1";
+            chartMoney_VVV.Legends.Add(legend2);
             chartMoney_VVV.Location = new Point(687, 3);
             chartMoney_VVV.Name = "chartMoney_VVV";
             chartMoney_VVV.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            series1.YValuesPerPoint = 2;
-            chartMoney_VVV.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.YValuesPerPoint = 2;
+            chartMoney_VVV.Series.Add(series2);
             chartMoney_VVV.Size = new Size(573, 300);
             chartMoney_VVV.TabIndex = 4;
-            title1.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            title1.ForeColor = Color.Indigo;
-            title1.Name = "TitleChart";
-            title1.Text = "Стартовые цены";
-            chartMoney_VVV.Titles.Add(title1);
+            title2.Font = new Font("Microsoft YaHei", 10.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            title2.ForeColor = Color.Indigo;
+            title2.Name = "TitleChart";
+            title2.Text = "Стартовые цены";
+            chartMoney_VVV.Titles.Add(title2);
             chartMoney_VVV.Click += chartMoney_VVV_Click;
             // 
             // buttonDownload_VVV
@@ -764,6 +841,9 @@
             groupBoxWork_VVV.ResumeLayout(false);
             groupBoxWork_VVV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewData_VVV).EndInit();
+            tabPageChart_VVV.ResumeLayout(false);
+            panelSum_VVV.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartSum_VVV).EndInit();
             tabPageFirms_VVV.ResumeLayout(false);
             tabPageFirms_VVV.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)chartMoney_VVV).EndInit();
@@ -834,5 +914,9 @@
         private ToolStripMenuItem справкаToolStripMenuItem;
         private ToolStripMenuItem поддержкаToolStripMenuItem;
         private ToolStripMenuItem руководствоПользователяToolStripMenuItem;
+        private TabPage tabPageChart_VVV;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSum_VVV;
+        private Panel panelSum_VVV;
+        private Button buttonSumChart_VVV;
     }
 }
