@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
@@ -105,6 +106,7 @@
             openFileDialog_VVV = new OpenFileDialog();
             openFileDialogFirms_VVV = new OpenFileDialog();
             saveFileDialogFirms_VVV = new SaveFileDialog();
+            toolTipMenu_VVV = new ToolTip(components);
             panelLabel_VVV.SuspendLayout();
             menuStripProject_VVV.SuspendLayout();
             tabControlData_VVV.SuspendLayout();
@@ -140,6 +142,7 @@
             buttonAbout_VVV.Name = "buttonAbout_VVV";
             buttonAbout_VVV.Size = new Size(60, 54);
             buttonAbout_VVV.TabIndex = 2;
+            toolTipMenu_VVV.SetToolTip(buttonAbout_VVV, "Информация о разработчике.");
             buttonAbout_VVV.UseVisualStyleBackColor = true;
             buttonAbout_VVV.Click += buttonAbout_VVV_Click;
             // 
@@ -255,6 +258,7 @@
             buttonFilter_VVV.Size = new Size(169, 54);
             buttonFilter_VVV.TabIndex = 3;
             buttonFilter_VVV.Text = "Отфильтровать";
+            toolTipMenu_VVV.SetToolTip(buttonFilter_VVV, "Произвести фильтрацию по выбранному \r\nстолбцу и ключевому слову.");
             buttonFilter_VVV.UseVisualStyleBackColor = false;
             buttonFilter_VVV.Click += buttonFilter_VVV_Click;
             // 
@@ -361,6 +365,7 @@
             buttonRemove_VVV.Name = "buttonRemove_VVV";
             buttonRemove_VVV.Size = new Size(63, 60);
             buttonRemove_VVV.TabIndex = 3;
+            toolTipMenu_VVV.SetToolTip(buttonRemove_VVV, "Удалить строку из базы данных.");
             buttonRemove_VVV.UseVisualStyleBackColor = false;
             buttonRemove_VVV.Click += buttonRemove_VVV_Click;
             // 
@@ -372,6 +377,7 @@
             buttonAdd_VVV.Name = "buttonAdd_VVV";
             buttonAdd_VVV.Size = new Size(63, 60);
             buttonAdd_VVV.TabIndex = 2;
+            toolTipMenu_VVV.SetToolTip(buttonAdd_VVV, "Добавить строку в базу данных.");
             buttonAdd_VVV.UseVisualStyleBackColor = false;
             buttonAdd_VVV.Click += buttonAdd_VVV_Click;
             // 
@@ -384,6 +390,7 @@
             buttonSave_VVV.Name = "buttonSave_VVV";
             buttonSave_VVV.Size = new Size(63, 60);
             buttonSave_VVV.TabIndex = 1;
+            toolTipMenu_VVV.SetToolTip(buttonSave_VVV, "Сохранить файл базы данных в формате csv.");
             buttonSave_VVV.UseVisualStyleBackColor = false;
             buttonSave_VVV.Click += buttonSave_VVV_Click;
             // 
@@ -395,6 +402,7 @@
             buttonOpen_VVV.Name = "buttonOpen_VVV";
             buttonOpen_VVV.Size = new Size(63, 60);
             buttonOpen_VVV.TabIndex = 0;
+            toolTipMenu_VVV.SetToolTip(buttonOpen_VVV, "Загрузить файл базы данных в формате csv.");
             buttonOpen_VVV.UseVisualStyleBackColor = false;
             buttonOpen_VVV.Click += buttonOpen_VVV_Click;
             // 
@@ -441,8 +449,10 @@
             dataGridViewData_VVV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewData_VVV.RowHeadersVisible = false;
             dataGridViewData_VVV.RowHeadersWidth = 51;
+            dataGridViewData_VVV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewData_VVV.Size = new Size(949, 560);
             dataGridViewData_VVV.TabIndex = 0;
+            
             // 
             // Firms
             // 
@@ -526,6 +536,7 @@
             buttonSumChart_VVV.TabIndex = 2;
             buttonSumChart_VVV.Text = "Подсчитать";
             buttonSumChart_VVV.TextAlign = ContentAlignment.MiddleLeft;
+            toolTipMenu_VVV.SetToolTip(buttonSumChart_VVV, "Подсчет общей стоимости всех ЭВМ из базы данных");
             buttonSumChart_VVV.UseVisualStyleBackColor = false;
             buttonSumChart_VVV.Click += buttonSumChart_VVV_Click;
             // 
@@ -592,6 +603,7 @@
             buttonRemoveFirms_VVV.Name = "buttonRemoveFirms_VVV";
             buttonRemoveFirms_VVV.Size = new Size(72, 59);
             buttonRemoveFirms_VVV.TabIndex = 15;
+            toolTipMenu_VVV.SetToolTip(buttonRemoveFirms_VVV, "Удалить строку из базы данных.");
             buttonRemoveFirms_VVV.UseVisualStyleBackColor = true;
             buttonRemoveFirms_VVV.Click += buttonRemoveFirms_VVV_Click;
             // 
@@ -602,6 +614,7 @@
             buttonAddFirms_VVV.Name = "buttonAddFirms_VVV";
             buttonAddFirms_VVV.Size = new Size(72, 59);
             buttonAddFirms_VVV.TabIndex = 14;
+            toolTipMenu_VVV.SetToolTip(buttonAddFirms_VVV, "Добавить строку в базу данных.");
             buttonAddFirms_VVV.UseVisualStyleBackColor = true;
             buttonAddFirms_VVV.Click += buttonAddFirms_VVV_Click;
             // 
@@ -613,6 +626,7 @@
             buttonSaveFirms_VVV.Name = "buttonSaveFirms_VVV";
             buttonSaveFirms_VVV.Size = new Size(72, 66);
             buttonSaveFirms_VVV.TabIndex = 13;
+            toolTipMenu_VVV.SetToolTip(buttonSaveFirms_VVV, "Сохранить базу данных в формате csv.");
             buttonSaveFirms_VVV.UseVisualStyleBackColor = true;
             buttonSaveFirms_VVV.Click += buttonSaveFirms_VVV_Click;
             // 
@@ -729,6 +743,7 @@
             buttonDownload_VVV.Name = "buttonDownload_VVV";
             buttonDownload_VVV.Size = new Size(72, 66);
             buttonDownload_VVV.TabIndex = 3;
+            toolTipMenu_VVV.SetToolTip(buttonDownload_VVV, "Загрузить базу данных в формате csv.");
             buttonDownload_VVV.UseVisualStyleBackColor = true;
             buttonDownload_VVV.Click += buttonDownload_VVV_Click;
             // 
@@ -819,6 +834,12 @@
             groupBoxData_VVV.TabIndex = 1;
             groupBoxData_VVV.TabStop = false;
             groupBoxData_VVV.Text = "Главная";
+            // 
+            // toolTipMenu_VVV
+            // 
+            toolTipMenu_VVV.IsBalloon = true;
+            toolTipMenu_VVV.ToolTipIcon = ToolTipIcon.Info;
+            toolTipMenu_VVV.ToolTipTitle = "Подсказка";
             // 
             // FormMain
             // 
@@ -918,5 +939,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSum_VVV;
         private Panel panelSum_VVV;
         private Button buttonSumChart_VVV;
+        private ToolTip toolTipMenu_VVV;
     }
 }

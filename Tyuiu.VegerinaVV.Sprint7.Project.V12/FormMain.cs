@@ -104,7 +104,7 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
         private void buttonRemove_VVV_Click(object sender, EventArgs e)
         {
-            dataGridViewData_VVV.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
             if (dataGridViewData_VVV.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Пожалуйста, выберите строку для удаления.", "Строка не выбрана", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -118,19 +118,15 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
             try
             {
+                DataGridViewRow[] rowsToRemove = new DataGridViewRow[dataGridViewData_VVV.SelectedRows.Count];
+                dataGridViewData_VVV.SelectedRows.CopyTo(rowsToRemove, 0);
 
-                List<int> rowsToDelete = new List<int>();
-                foreach (DataGridViewRow selectedRow in dataGridViewData_VVV.SelectedRows)
-                    rowsToDelete.Add(selectedRow.Index);
-
-                for (int i = rowsToDelete.Count - 1; i >= 0; i--)
+                foreach (DataGridViewRow r in rowsToRemove)
                 {
-                    dataGridViewData_VVV.Rows.RemoveAt(rowsToDelete[i]);
+                    dataGridViewData_VVV.Rows.Remove(r);
                 }
 
                 dataGridViewData_VVV.ClearSelection();
-
-
             }
             catch (Exception ex)
             {
@@ -145,18 +141,25 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
         private void buttonFilter_VVV_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow r in dataGridViewData_VVV.Rows)
+            try
             {
-                if ((r.Cells[comboBoxName_VVV.SelectedIndex].Value?.ToString() ?? "").ToUpper().Contains(textBoxFilter_VVV.Text.ToUpper()))
+                foreach (DataGridViewRow r in dataGridViewData_VVV.Rows)
                 {
-                    dataGridViewData_VVV.Rows[r.Index].Visible = true;
-                    dataGridViewData_VVV.Rows[r.Index].Selected = true;
+                    if ((r.Cells[comboBoxName_VVV.SelectedIndex].Value?.ToString() ?? "").ToUpper().Contains(textBoxFilter_VVV.Text.ToUpper()))
+                    {
+                        dataGridViewData_VVV.Rows[r.Index].Visible = true;
+                        dataGridViewData_VVV.Rows[r.Index].Selected = true;
+                    }
+                    else
+                    {
+                        dataGridViewData_VVV.CurrentCell = null;
+                        dataGridViewData_VVV.Rows[r.Index].Visible = false;
+                    }
                 }
-                else
-                {
-                    dataGridViewData_VVV.CurrentCell = null;
-                    dataGridViewData_VVV.Rows[r.Index].Visible = false;
-                }
+            }
+            catch
+            {
+                MessageBox.Show("Выберите столбец для фильтрации", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -380,19 +383,15 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
             try
             {
+                DataGridViewRow[] rowsToRemove = new DataGridViewRow[dataGridViewFirms_VVV.SelectedRows.Count];
+                dataGridViewFirms_VVV.SelectedRows.CopyTo(rowsToRemove, 0);
 
-                List<int> rowsToDelete = new List<int>();
-                foreach (DataGridViewRow selectedRow in dataGridViewFirms_VVV.SelectedRows)
-                    rowsToDelete.Add(selectedRow.Index);
-
-                for (int i = rowsToDelete.Count - 1; i >= 0; i--)
+                foreach (DataGridViewRow r in rowsToRemove)
                 {
-                    dataGridViewFirms_VVV.Rows.RemoveAt(rowsToDelete[i]);
+                    dataGridViewFirms_VVV.Rows.Remove(r);
                 }
 
                 dataGridViewFirms_VVV.ClearSelection();
-
-
             }
             catch (Exception ex)
             {
@@ -424,7 +423,7 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
                 chartSum_VVV.Series[0].Points.Clear();
                 chartSum_VVV.Series[0].IsValueShownAsLabel = true;
                 int sumcolumn = dataGridViewData_VVV.ColumnCount - 1;
-                
+
                 double sumResult = 0;
                 foreach (DataGridViewRow r in dataGridViewData_VVV.Rows)
                 {
@@ -434,7 +433,7 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
                         sumResult += sum;
                     }
                 }
-                chartSum_VVV.Series[0].Points.AddXY("Общая сумма", sumResult);
+                chartSum_VVV.Series[0].Points.AddXY("", sumResult);
             }
             catch (Exception ex)
             {

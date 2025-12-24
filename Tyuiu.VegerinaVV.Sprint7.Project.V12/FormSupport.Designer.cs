@@ -61,10 +61,10 @@
             // 
             labelHelp_VVV.AutoSize = true;
             labelHelp_VVV.BackColor = Color.Transparent;
-            labelHelp_VVV.Font = new Font("Segoe UI", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            labelHelp_VVV.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             labelHelp_VVV.Location = new Point(32, 74);
             labelHelp_VVV.Name = "labelHelp_VVV";
-            labelHelp_VVV.Size = new Size(624, 252);
+            labelHelp_VVV.Size = new Size(591, 252);
             labelHelp_VVV.TabIndex = 3;
             labelHelp_VVV.Text = resources.GetString("labelHelp_VVV.Text");
             // 

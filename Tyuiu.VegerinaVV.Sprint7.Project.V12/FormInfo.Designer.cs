@@ -38,7 +38,7 @@
             // 
             richTextBoxInfo_VVV.BackColor = Color.Lavender;
             richTextBoxInfo_VVV.Dock = DockStyle.Fill;
-            richTextBoxInfo_VVV.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            richTextBoxInfo_VVV.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             richTextBoxInfo_VVV.Location = new Point(3, 26);
             richTextBoxInfo_VVV.Name = "richTextBoxInfo_VVV";
             richTextBoxInfo_VVV.Size = new Size(763, 585);
