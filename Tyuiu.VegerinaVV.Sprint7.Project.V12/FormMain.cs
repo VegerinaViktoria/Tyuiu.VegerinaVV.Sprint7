@@ -10,6 +10,8 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
             InitializeComponent();
             openFileDialog_VVV.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
             openFileDialogFirms_VVV.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
+            saveFileDialog_VVV.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
+            saveFileDialogFirms_VVV.Filter = "Значения, разделённые запятыми(*.csv)|*.csv|Все файлы(*.*)|*.*";
 
         }
         DataService ds = new DataService();
@@ -148,7 +150,6 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
                     if ((r.Cells[comboBoxName_VVV.SelectedIndex].Value?.ToString() ?? "").ToUpper().Contains(textBoxFilter_VVV.Text.ToUpper()))
                     {
                         dataGridViewData_VVV.Rows[r.Index].Visible = true;
-                        dataGridViewData_VVV.Rows[r.Index].Selected = true;
                     }
                     else
                     {
@@ -190,7 +191,7 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
 
                     if (!string.IsNullOrEmpty(searchText) && cellValue.Contains(searchText))
                     {
-                        cell.Style.BackColor = Color.BlueViolet;
+                        cell.Style.BackColor = Color.MediumPurple;
                         foundRow = true;
                     }
                     else
@@ -276,33 +277,16 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
         {
             try
             {
-                int count = 0;
+                int[] values = new int[dataGridViewFirms_VVV.Rows.Count];
+
                 for (int i = 0; i < dataGridViewFirms_VVV.Rows.Count; i++)
                 {
-                    if (dataGridViewFirms_VVV.Rows[i].Visible)
-                    {
-                        count++;
-                    }
+                    string val = dataGridViewFirms_VVV.Rows[i].Cells[4].Value?.ToString() ?? "0";
+                    values[i] = int.Parse(val);
                 }
-
-                if (count > 0)
-                {
-                    int[] values = new int[count];
-                    int index = 0;
-
-                    for (int i = 0; i < dataGridViewFirms_VVV.Rows.Count; i++)
-                    {
-                        if (dataGridViewFirms_VVV.Rows[i].Visible)
-                        {
-                            string val = dataGridViewFirms_VVV.Rows[i].Cells[4].Value?.ToString() ?? "0";
-                            values[index] = int.Parse(val);
-                            index++;
-                        }
-                    }
-                    textBoxMax_VVV.Text = ds.MaxValue(values).ToString();
-                    textBoxMin_VVV.Text = ds.MinValue(values).ToString();
-                    textBoxAverage_VVV.Text = ds.AverageValue(values).ToString();
-                }
+                textBoxMax_VVV.Text = ds.MaxValue(values).ToString();
+                textBoxMin_VVV.Text = ds.MinValue(values).ToString();
+                textBoxAverage_VVV.Text = ds.AverageValue(values).ToString();
             }
             catch (Exception ex)
             {
@@ -439,6 +423,11 @@ namespace Tyuiu.VegerinaVV.Sprint7.Project.V12
             {
                 MessageBox.Show($"Ошибка построения диаграммы: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void chartSum_VVV_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
